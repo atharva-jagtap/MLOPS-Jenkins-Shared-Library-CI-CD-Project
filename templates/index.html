@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="static/style.css">
+  <title>Smart Manufacturing Machines Efficiency Prediction</title>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="window">
+      <!-- <div class="window-top">
+        <div class="traffic">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="expand" title="Decorative"></div>
+      </div> -->
+      <div class="window-top"></div>
+
+      <!-- HORIZONTAL LAYOUT -->
+      <div class="content">
+        <!-- LEFT: info / result -->
+        <aside class="left">
+          <header class="hero">
+            <h1>Smart Manufacturing Machine Efficiency Prediction</h1>
+            <p>Enter machine + network signals to predict efficiency level.</p>
+          </header>
+
+          {% if prediction %}
+            <div class="result">
+              <div class="result-title">Prediction</div>
+              <div class="result-value">{{ prediction }}</div>
+            </div>
+          {% endif %}
+
+          <div class="tip">
+            Tip: Use realistic numeric values for best results.
+          </div>
+        </aside>
+
+        <!-- RIGHT: form -->
+        <section class="right">
+          <form method="post" class="form">
+            <div class="grid">
+              {% for feature in features %}
+                <div class="field">
+                  <label for="{{ feature }}">{{ feature }}*</label>
+                  <input
+                    id="{{ feature }}"
+                    name="{{ feature }}"
+                    type="text"
+                    placeholder="Enter {{ feature }}"
+                    required
+                    autocomplete="off"
+                  />
+                </div>
+              {% endfor %}
+            </div>
+
+            <button class="btn" type="submit">
+              Submit <span class="arrow">↗</span>
+            </button>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
