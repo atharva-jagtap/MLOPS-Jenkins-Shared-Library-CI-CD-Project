@@ -37,7 +37,7 @@ def index():
             prediction = LABELS.get(pred, "Unknown")
 
         except Exception as e:
-            prediction = f"Error message: {e}"
+            prediction = f"Error : {e}"
 
     return render_template("index.html", prediction=prediction, features=FEATURES)
 
